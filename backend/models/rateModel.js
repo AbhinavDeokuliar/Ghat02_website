@@ -16,6 +16,7 @@ const RateSchema = new mongoose.Schema({
         default: true,
         select: false
     }
+    //test
 }, { timestamps: true })
 
 RateSchema.pre(/^find/, function(next) {
