@@ -17,10 +17,14 @@ const userTokenRouter = require('./routes/userTokenRoutes');
 
 const app = express();
 
-// CORS Configuration - Must be before other middleware
 app.use(
   cors({
-    origin: 'http://localhost:5175',
+    origin: [
+      'https://ramjeesinghandco27b.in',
+      'https://www.ramjeesinghandco27b.in',
+      'https://api.ramjeesinghandco27b.in'
+      //right
+    ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: [
@@ -33,9 +37,20 @@ app.use(
   })
 );
 
-// Add CORS headers middleware
+// Update CORS headers middleware to handle multiple origins
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5175');
+  const allowedOrigins = [
+    
+    'https://ramjeesinghandco27b.in',
+    'https://www.ramjeesinghandco27b.in',
+    'https://api.ramjeesinghandco27b.in'
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
   res.header('Access-Control-Allow-Credentials', true);
   res.header(
     'Access-Control-Allow-Methods',
