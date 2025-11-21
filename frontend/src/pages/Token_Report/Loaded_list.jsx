@@ -268,7 +268,7 @@ const Loaded_list = () => {
   const customStyles = {
     headRow: {
       style: {
-        background: 'linear-gradient(to right, #94a3b8, #cbd5e1, #e2e8f0)',
+        background: 'linear-gradient(to right, #D4C5A9, #E8DCBB, #F5EDCD)',
         fontWeight: 'bold',
         minHeight: '52px',
         paddingLeft: '8px',
@@ -282,6 +282,7 @@ const Loaded_list = () => {
         justifyContent: 'center',
         textAlign: 'center',
         fontWeight: '600',
+        color: '#5C4A3A',
       },
     },
     cells: {
@@ -291,7 +292,7 @@ const Loaded_list = () => {
         textAlign: 'center',
         '&:not(:last-of-type)': {
           borderRightWidth: '1px',
-          borderRightColor: '#e5e7eb',
+          borderRightColor: '#E8DCBB',
         },
       },
     },
@@ -299,7 +300,7 @@ const Loaded_list = () => {
       style: {
         minHeight: '60px',
         '&:hover': {
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#FFF8DE',
         },
       },
     },
@@ -334,27 +335,27 @@ const Loaded_list = () => {
       )}
 
       {/* Header Section with Form */}
-      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 mb-6">
-        <h1 className="text-2xl font-bold text-gray-300 mb-4">Loaded Report</h1>
+      <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 mb-6 border border-primary-300">
+        <h1 className="text-2xl font-bold text-primary-800 mb-4">Loaded Report</h1>
         <form onSubmit={handleSubmit} className="flex flex-wrap items-end gap-4">
           <div className="flex flex-col">
-            <label htmlFor="fromDate" className="text-gray-300 mb-1">From Date</label>
+            <label htmlFor="fromDate" className="text-primary-800 mb-1 font-semibold">From Date</label>
             <DatePicker
               id="fromDate"
               selected={fromDate}
               onChange={date => setFromDate(date)}
-              className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+              className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
               placeholderText="From Date"
             />
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="toDate" className="text-gray-300 mb-1">To Date</label>
+            <label htmlFor="toDate" className="text-primary-800 mb-1 font-semibold">To Date</label>
             <DatePicker
               id="toDate"
               selected={toDate}
               onChange={date => setToDate(date)}
-              className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+              className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
               placeholderText="To Date"
             />
           </div>
@@ -364,7 +365,7 @@ const Loaded_list = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center"
+                className="px-8 py-2 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800 flex items-center justify-center"
               >
                 Apply Filters
               </button>
@@ -373,7 +374,7 @@ const Loaded_list = () => {
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="px-8 py-2 rounded-md bg-red-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-red-500 flex items-center justify-center"
+                  className="px-8 py-2 rounded-md bg-red-500 text-white font-bold transition duration-200 hover:bg-red-600 border-2 border-transparent hover:border-red-700 flex items-center justify-center"
                 >
                   Reset Filters
                 </button>
@@ -384,13 +385,13 @@ const Loaded_list = () => {
       </div>
 
       {/* Replace the existing table section with DataTable */}
-      <div className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${
+      <div className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 border border-primary-300 ${
         isFullScreen ? 'fixed inset-0 z-50' : ''
       }`}>
-        <div className="p-4 bg-gray-50 border-b flex justify-between items-center">
+        <div className="p-4 bg-primary-100 border-b border-primary-300 flex justify-between items-center">
           <button
             onClick={toggleFullScreen}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300"
+            className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition duration-300"
           >
             {isFullScreen ? <FaCompressAlt /> : <FaExpandAlt />}
             {isFullScreen ? 'Exit Full Screen' : 'Full Screen'}
@@ -411,7 +412,7 @@ const Loaded_list = () => {
             onChangeRowsPerPage={handlePerPageChange}
             progressPending={isLoading}
             progressComponent={
-              <div className="py-8 text-center text-gray-500">
+              <div className="py-8 text-center text-primary-600">
                 <div className="flex flex-col items-center justify-center">
                   <FaSpinner className="animate-spin text-2xl mb-2" />
                   <span className="font-medium">Loading tokens...</span>
@@ -419,10 +420,10 @@ const Loaded_list = () => {
               </div>
             }
             noDataComponent={
-              <div className="py-8 text-center text-gray-500 text-lg">
+              <div className="py-8 text-center text-primary-600 text-lg">
                 <div className="flex flex-col items-center justify-center">
                   <span className="font-medium">No data available</span>
-                  <span className="text-sm text-gray-400 mt-1">Select date range to view records</span>
+                  <span className="text-sm text-primary-500 mt-1">Select date range to view records</span>
                 </div>
               </div>
             }

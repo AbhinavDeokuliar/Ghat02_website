@@ -249,20 +249,20 @@ const VehicleRate = () => {
       {/* Add Delete Confirmation Popup */}
       {deleteConfirm.show && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
-            <h2 className="text-xl font-bold mb-4">Confirm Delete</h2>
-            <p className="text-gray-600 mb-6">Are you sure you want to delete this vehicle type?</p>
+          <div className="bg-gradient-to-b from-primary-50 to-white rounded-lg p-6 max-w-sm w-full mx-4 border border-primary-300">
+            <h2 className="text-xl font-bold mb-4 text-primary-800">Confirm Delete</h2>
+            <p className="text-primary-700 mb-6">Are you sure you want to delete this vehicle type?</p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setDeleteConfirm({ show: false, index: null })}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 bg-primary-200 text-primary-800 rounded-lg hover:bg-primary-300 transition-colors"
                 disabled={isDeleting}
               >
                 Cancel
               </button>
               <button
                 onClick={confirmDelete}
-                className={`px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors flex items-center ${isDeleting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                className={`px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors flex items-center ${isDeleting ? 'opacity-75 cursor-not-allowed' : ''}`}
                 disabled={isDeleting}
               >
                 {isDeleting ? (
@@ -280,8 +280,8 @@ const VehicleRate = () => {
       )}
 
       {/* Header Section with Form */}
-      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 mb-6">
-        <h1 className="text-2xl font-bold text-gray-300 mb-4">Manage Vehicle Type</h1>
+      <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 mb-6 border border-primary-300">
+        <h1 className="text-2xl font-bold text-primary-800 mb-4">Manage Vehicle Type</h1>
         <div className="flex flex-wrap items-center gap-4">
           <input
             ref={inputRef}
@@ -290,13 +290,13 @@ const VehicleRate = () => {
             onChange={(e) => setVehicleType(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Enter vehicle type"
-            className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+            className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
             disabled={isCreating}
           />
           <button
             onClick={handleAddVehicle}
             disabled={isCreating}
-            className={`px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center ${isCreating ? 'opacity-75 cursor-not-allowed' : ''}`}
+            className={`px-8 py-2 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800 flex items-center justify-center ${isCreating ? 'opacity-75 cursor-not-allowed' : ''}`}
           >
             {isCreating ? (
               <>
@@ -310,42 +310,42 @@ const VehicleRate = () => {
           {editIndex !== null && (
             <button
               onClick={handleCancelEdit}
-              className="px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center"
+              className="px-8 py-2 rounded-md bg-primary-200 text-primary-800 font-bold transition duration-200 hover:bg-primary-300 border-2 border-transparent hover:border-primary-600 flex items-center justify-center"
             >
               Cancel
             </button>
           )}
-          <p className="text-sm font-semibold text-gray-300">Total Entries: {vehicleList.length}</p>
+          <p className="text-sm font-semibold text-primary-800">Total Entries: {vehicleList.length}</p>
         </div>
       </div>
 
       {/* Table Section */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-primary-300">
         <table className="w-full">
-          <thead className="bg-gradient-to-r from-slate-400 via-slate-300 to-slate-200">
+          <thead className="bg-gradient-to-r from-primary-400 via-primary-300 to-primary-200">
             <tr>
-              <th className="py-3 px-4 text-left font-semibold">
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">
                 <div className="flex items-center cursor-pointer" onClick={handleSort}>
                   Vehicle Type
                   <FaSort className="ml-2" />
                 </div>
               </th>
-              <th className="py-3 px-4 text-left font-semibold">Actions</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-primary-200">
             {isLoading ? (
               <tr>
                 <td colSpan="2" className="py-8">
                   <div className="flex flex-col items-center justify-center">
-                    <FaSpinner className="animate-spin text-2xl mr-2 text-gray-400" />
-                    <span className="text-gray-500">Loading vehicles...</span>
+                    <FaSpinner className="animate-spin text-2xl mr-2 text-primary-600" />
+                    <span className="text-primary-600">Loading vehicles...</span>
                   </div>
                 </td>
               </tr>
             ) : vehicleList.length === 0 ? (
               <tr>
-                <td colSpan="2" className="py-8 text-center text-gray-500 text-lg">
+                <td colSpan="2" className="py-8 text-center text-primary-600 text-lg">
                   No vehicles available
                 </td>
               </tr>

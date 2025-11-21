@@ -339,30 +339,30 @@ const Content = () => {
       {/* Form Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center pt-20 z-50">
-          <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 w-[800px] max-h-[85vh] overflow-y-auto relative">
+          <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 w-[800px] max-h-[85vh] overflow-y-auto relative border border-primary-300">
             {/* Close button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              className="absolute top-4 right-4 text-primary-800 hover:text-primary-900"
             >
               <FaTimes className="w-6 h-6" />
             </button>
 
-            <h2 className="text-2xl font-bold text-gray-300 mb-4">Add New Token</h2>
+            <h2 className="text-2xl font-bold text-primary-800 mb-4">Add New Token</h2>
             <form onSubmit={handleSubmitClick} autoComplete="off">
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Select User</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Select User</label>
                   <select
                     name="userId"
                     value={formData.userId}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   >
                     <option value="">Select User</option>
                     {Array.isArray(users) && users
-                      .filter(user => user.role === 'operator') // Only show operators in the dropdown
+                      .filter(user => user.role === 'operator')
                       .map((user) => (
                         <option key={user._id} value={user._id}>
                           {user.username} - {user.route}
@@ -371,46 +371,46 @@ const Content = () => {
                   </select>
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Driver Name</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Driver Name</label>
                   <input 
                     type="text" 
                     name="driverName"
                     value={formData.driverName}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Driver Mobile</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Driver Mobile</label>
                   <input 
                     type="tel" 
                     name="driverMobile"
                     value={formData.driverMobile}
                     onChange={handleInputChange}
                     maxLength={10}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle No</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle No</label>
                   <input 
                     type="text" 
                     name="vehicleNo"
                     value={formData.vehicleNo}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle Type</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle Type</label>
                   <select
                     name="vehicleType"
-                    value={formData.vehicleId || ''} // Change to use vehicleId
+                    value={formData.vehicleId || ''}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   >
                     <option value="">Select Vehicle Type</option>
@@ -422,20 +422,19 @@ const Content = () => {
                   </select>
                 </div>
 
-                {/* Replace Vehicle Rate dropdown with read-only input */}
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle Rate</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle Rate</label>
                   <input 
                     type="text"
                     name="vehicleRate"
                     value={formData.vehicleRate ? `₹${formData.vehicleRate}` : ''}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     readOnly
                     required
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Quantity</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Quantity</label>
                   {formData.quantity === "0" ? (
                     <input
                       type="number"
@@ -443,7 +442,7 @@ const Content = () => {
                       value={formData.quantity}
                       onChange={handleInputChange}
                       min="0"
-                      className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                      className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                       required
                     />
                   ) : (
@@ -451,7 +450,7 @@ const Content = () => {
                       name="quantity"
                       value={formData.quantity}
                       onChange={handleInputChange}
-                      className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                      className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                       required
                     >
                       {quantityOptions.map((qty, index) => (
@@ -461,12 +460,12 @@ const Content = () => {
                   )}
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Route</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Route</label>
                   <select
                     name="route"
                     value={formData.route}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   >
                     <option value="">Select Route</option>
@@ -478,23 +477,23 @@ const Content = () => {
                   </select>
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Place</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Place</label>
                   <input 
                     type="text" 
                     name="place"
                     value={formData.place}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Chalaan Pin</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Chalaan Pin</label>
                   <input 
                     type="text" 
                     name="chalaanPin"
                     value={formData.chalaanPin}
                     onChange={handleInputChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -502,14 +501,14 @@ const Content = () => {
                 <button 
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-2.5 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="px-6 py-2.5 bg-primary-200 text-primary-800 rounded-lg hover:bg-primary-300 transition-colors"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center min-w-[100px]"
+                  className="px-6 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center min-w-[100px]"
                 >
                   {isSubmitting ? (
                     <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
@@ -526,7 +525,7 @@ const Content = () => {
       {/* Show loading spinner when data is being fetched */}
       {loading ? (
         <div className="flex justify-center items-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-t-2 border-b-2 border-gray-900"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-t-2 border-b-2 border-primary-600"></div>
         </div>
       ) : !selectedOperator ? (
         // Grid layout for operator cards when no operator is selected

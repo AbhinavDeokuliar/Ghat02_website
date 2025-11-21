@@ -279,20 +279,20 @@ const CreateUser = () => {
       {/* Add Delete Confirmation Popup */}
       {deleteConfirm.show && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
-            <h2 className="text-xl font-bold mb-4">Confirm Delete</h2>
-            <p className="text-gray-600 mb-6">Are you sure you want to delete this user?</p>
+          <div className="bg-gradient-to-b from-primary-50 to-white rounded-lg p-6 max-w-sm w-full mx-4 border border-primary-300">
+            <h2 className="text-xl font-bold mb-4 text-primary-800">Confirm Delete</h2>
+            <p className="text-primary-700 mb-6">Are you sure you want to delete this user?</p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setDeleteConfirm({ show: false, index: null, id: null })}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 bg-primary-200 text-primary-800 rounded-lg hover:bg-primary-300 transition-colors"
                 disabled={isDeletingUser}
               >
                 Cancel
               </button>
               <button
                 onClick={confirmDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors flex items-center"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors flex items-center"
                 disabled={isDeletingUser}
               >
                 {isDeletingUser ? (
@@ -310,13 +310,13 @@ const CreateUser = () => {
       )}
 
       {/* Form Container */}
-      <div ref={formRef} className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 mb-6">
-        <h2 className="text-2xl font-bold text-gray-300 mb-4">{isEditMode ? 'Edit User' : 'Create User'}</h2>
+      <div ref={formRef} className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 mb-6 border border-primary-300">
+        <h2 className="text-2xl font-bold text-primary-800 mb-4">{isEditMode ? 'Edit User' : 'Create User'}</h2>
         <div className="flex flex-wrap items-center gap-4">
           <form onSubmit={handleSubmit} className="w-full space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <label className="block text-gray-300 text-sm font-bold mb-2">
+                <label className="block text-primary-800 text-sm font-bold mb-2">
                   User Name
                 </label>
                 <div className="inline-block relative">
@@ -328,13 +328,13 @@ const CreateUser = () => {
                     onChange={handleInputChange}
                     placeholder="Enter user name"
                     autoComplete="off"
-                    className="px-4 py-3 pr-10 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 pr-10 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
               </div>
               <div className="relative">
-                <label className="block text-gray-300 text-sm font-bold mb-2">
+                <label className="block text-primary-800 text-sm font-bold mb-2">
                   Mobile Number
                 </label>
                 <div className="inline-block relative">
@@ -345,13 +345,13 @@ const CreateUser = () => {
                     onChange={handleInputChange}
                     maxLength={10}
                     placeholder="Enter 10 digit number"
-                    className="px-4 py-3 pr-10 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 pr-10 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
               </div>
               <div className="relative" ref={passwordRef}>
-                <label className="block text-gray-300 text-sm font-bold mb-2">
+                <label className="block text-primary-800 text-sm font-bold mb-2">
                   Password
                 </label>
                 <div className="inline-block relative">
@@ -362,12 +362,12 @@ const CreateUser = () => {
                     onChange={handleInputChange}
                     placeholder="Enter password"
                     autoComplete="new-password"
-                    className="px-4 py-3 pr-10 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
+                    className="px-4 py-3 pr-10 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                     required
                   />
                   <button
                     type="button"
-                    className="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-200 transition-colors duration-200"
+                    className="absolute inset-y-0 right-3 flex items-center text-primary-600 hover:text-primary-800 transition-colors duration-200"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-lg" />
@@ -375,7 +375,7 @@ const CreateUser = () => {
                 </div>
               </div>
               <div className="relative">
-                <label className="block text-gray-300 text-sm font-bold mb-2">
+                <label className="block text-primary-800 text-sm font-bold mb-2">
                   Route
                 </label>
                 <div className="inline-block relative">
@@ -385,7 +385,7 @@ const CreateUser = () => {
                     value={formData.route}
                     onChange={handleInputChange}
                     placeholder="Enter route details"
-                    className="px-4 py-3 pr-10 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 pr-10 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                     required
                   />
                 </div>
@@ -396,7 +396,7 @@ const CreateUser = () => {
                 <button
                   type="button"
                   onClick={handleCancelEdit}
-                  className="px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center"
+                  className="px-8 py-2 rounded-md bg-primary-200 text-primary-800 font-bold transition duration-200 hover:bg-primary-300 border-2 border-transparent hover:border-primary-600 flex items-center justify-center"
                 >
                   Cancel
                 </button>
@@ -404,7 +404,7 @@ const CreateUser = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center"
+                className="px-8 py-2 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800 flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
@@ -421,21 +421,21 @@ const CreateUser = () => {
       </div>
 
       {/* Table Container */}
-      <div className="bg-white rounded-lg shadow-lg overflow-x-auto">
+      <div className="bg-white rounded-lg shadow-lg overflow-x-auto border border-primary-300">
         <table className="w-full min-w-[640px]">
-          <thead className="bg-gradient-to-r from-slate-400 via-slate-300 to-slate-200">
+          <thead className="bg-gradient-to-r from-primary-400 via-primary-300 to-primary-200">
             <tr>
-              <th className="py-3 px-4 text-left font-semibold">User Name</th>
-              <th className="py-3 px-4 text-left font-semibold">Mobile Number</th>
-              <th className="py-3 px-4 text-left font-semibold">Password</th>
-              <th className="py-3 px-4 text-left font-semibold">Route</th>
-              <th className="py-3 px-4 text-left font-semibold">Actions</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">User Name</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">Mobile Number</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">Password</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">Route</th>
+              <th className="py-3 px-4 text-left font-semibold text-primary-800">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-primary-200">
             {isLoading ? (
               <tr>
-                <td colSpan="5" className="py-8 text-center text-gray-500 text-lg">
+                <td colSpan="5" className="py-8 text-center text-primary-600 text-lg">
                   <div className="flex items-center justify-center">
                     <FaSpinner className="animate-spin text-2xl mr-2" />
                     Loading users...
@@ -444,7 +444,7 @@ const CreateUser = () => {
               </tr>
             ) : !users || users.length === 0 ? (
               <tr>
-                <td colSpan="5" className="py-8 text-center text-gray-500 text-lg">
+                <td colSpan="5" className="py-8 text-center text-primary-600 text-lg">
                   No users available
                 </td>
               </tr>

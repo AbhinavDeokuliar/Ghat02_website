@@ -83,19 +83,19 @@ const Loaded = () => {
 
   return (
     <div className="p-4 sm:p-7 max-w-full sm:max-w-7xl mx-auto">
-      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-4 sm:p-6 mb-4">
+      <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-4 sm:p-6 mb-4 border border-primary-300">
         <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <input
             type="text"
             value={tokenInput}
             onChange={handleInputChange}
             placeholder="Enter token number to search"
-            className="w-full sm:w-96 px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400"
+            className="w-full sm:w-96 px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
           />
           <button
             onClick={handleSearch}
             disabled={loading}
-            className="w-full sm:w-auto px-8 py-3 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500"
+            className="w-full sm:w-auto px-8 py-3 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800"
           >
             {loading ? 'Searching...' : 'Search'}
           </button>
@@ -112,27 +112,27 @@ const Loaded = () => {
         </div>
       )}
 
-      {loading && <div className="text-center my-4">Searching tokens...</div>}
+      {loading && <div className="text-center my-4 text-primary-600">Searching tokens...</div>}
 
       {!loading && displayTokens.length === 0 && (
-        <div className="text-center my-4 text-gray-400">
+        <div className="text-center my-4 text-primary-600">
           {tokenInput ? 'No matching tokens found' : 'No unloaded tokens available'}
         </div>
       )}
 
       {displayTokens.map((token, index) => (
-        <div key={token._id} className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-4 sm:p-6 mb-4">
-          <table className="w-full text-gray-300">
+        <div key={token._id} className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-4 sm:p-6 mb-4 border border-primary-300">
+          <table className="w-full text-primary-800">
             <thead>
-              <tr className="border-b border-gray-700">
-                <th className="text-left p-2">Field</th>
-                <th className="text-left p-2">Value</th>
+              <tr className="border-b border-primary-600">
+                <th className="text-left p-2 font-bold">Field</th>
+                <th className="text-left p-2 font-bold">Value</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-700 bg-gray-700 bg-opacity-40">
+              <tr className="border-b border-primary-600 bg-primary-300 bg-opacity-40">
                 <td className="p-2 font-semibold">Created Date</td>
-                <td className="p-2 text-teal-300">
+                <td className="p-2 text-primary-900 font-medium">
                   {new Date(token.createdAt).toLocaleDateString('en-IN', {
                     day: '2-digit',
                     month: '2-digit',
@@ -140,9 +140,9 @@ const Loaded = () => {
                   })}
                 </td>
               </tr>
-              <tr className="border-b border-gray-700 bg-gray-700 bg-opacity-40">
+              <tr className="border-b border-primary-600 bg-primary-300 bg-opacity-40">
                 <td className="p-2 font-semibold">Created Time</td>
-                <td className="p-2 text-teal-300">
+                <td className="p-2 text-primary-900 font-medium">
                   {new Date(token.createdAt).toLocaleTimeString('en-IN', {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -150,43 +150,43 @@ const Loaded = () => {
                   })}
                 </td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Driver Name</td>
                 <td className="p-2">{token.driverName}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Driver Mobile</td>
                 <td className="p-2">{token.driverMobileNo}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Vehicle No</td>
                 <td className="p-2">{token.vehicleNo}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Vehicle Type</td>
                 <td className="p-2">{token.vehicleType || 'N/A'}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Vehicle Rate</td>
                 <td className="p-2">₹{token.vehicleRate || 'N/A'}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Route</td>
                 <td className="p-2">{token.route}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Quantity</td>
                 <td className="p-2">{token.quantity}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Place</td>
                 <td className="p-2">{token.place}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Token No</td>
                 <td className="p-2">{token.tokenNo}</td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2">Status</td>
                 <td className="p-2">
                   <div className="flex items-center gap-2">
@@ -205,12 +205,12 @@ const Loaded = () => {
                   </div>
                 </td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-primary-600">
                 <td className="p-2" colSpan="2">
                   <button
                     onClick={() => handleClick(token)}
                     disabled={loading}
-                    className="w-full px-4 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500"
+                    className="w-full px-4 py-2 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800"
                   >
                     {loading ? 'Loading...' : 'Load Token'}
                   </button>

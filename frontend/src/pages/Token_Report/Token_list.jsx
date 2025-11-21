@@ -200,7 +200,7 @@ const Token_list = () => {
   const showSuccess = (message) => {
     setSuccessPopup({ show: true, message });
     setTimeout(() => {
-      setSuccessPopup({ show: false, message: '' });
+      setSuccessPopup({ show: false, message });
     }, 3000);
   };
 
@@ -508,9 +508,9 @@ const Token_list = () => {
   const customStyles = {
     headRow: {
       style: {
-        background: 'linear-gradient(to right, #94a3b8, #cbd5e1, #e2e8f0)',
+        background: 'linear-gradient(to right, #D4C5A9, #E8DCBB, #F5EDCD)',
         fontWeight: 'bold',
-        minHeight: '52px', // Increased height for header row
+        minHeight: '52px',
         paddingLeft: '8px',
         paddingRight: '8px',
       },
@@ -519,9 +519,10 @@ const Token_list = () => {
       style: {
         fontSize: '14px',
         padding: '8px',
-        justifyContent: 'center', // Center align headers
+        justifyContent: 'center',
         textAlign: 'center',
         fontWeight: '600',
+        color: '#5C4A3A',
       },
     },
     cells: {
@@ -531,7 +532,7 @@ const Token_list = () => {
         textAlign: 'center',
         '&:not(:last-of-type)': {
           borderRightWidth: '1px',
-          borderRightColor: '#e5e7eb',
+          borderRightColor: '#E8DCBB',
         },
       },
     },
@@ -539,14 +540,14 @@ const Token_list = () => {
       style: {
         minHeight: '60px',
         '&:hover': {
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#FFFDF5',
         },
       },
     },
     pagination: {
       style: {
         border: 'none',
-        backgroundColor: '#f8fafc',
+        backgroundColor: '#FFFDF5',
       },
     },
   };
@@ -639,13 +640,13 @@ const Token_list = () => {
       {/* Add Delete Confirmation Popup */}
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96">
-            <h3 className="text-lg font-semibold mb-4">Confirm Deletion</h3>
-            <p className="mb-4">Are you sure you want to delete this token?</p>
+          <div className="bg-gradient-to-b from-primary-50 to-white rounded-lg p-6 w-96 border border-primary-300">
+            <h3 className="text-lg font-semibold mb-4 text-primary-800">Confirm Deletion</h3>
+            <p className="mb-4 text-primary-700">Are you sure you want to delete this token?</p>
             <div className="flex justify-end gap-4">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                className="px-4 py-2 bg-primary-200 text-primary-800 rounded-lg hover:bg-primary-300 transition-colors"
                 disabled={isDeleting}
               >
                 Cancel
@@ -653,7 +654,7 @@ const Token_list = () => {
               <button
                 onClick={handleDelete}
                 disabled={isDeleting}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center gap-2"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 flex items-center gap-2"
               >
                 {isDeleting ? (
                   <>
@@ -670,38 +671,38 @@ const Token_list = () => {
       )}
 
       {/* Header Section with Form */}
-      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 mb-6">
-        <h1 className="text-2xl font-bold text-gray-300 mb-4">Token Report</h1>
+      <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 mb-6 border border-primary-300">
+        <h1 className="text-2xl font-bold text-primary-800 mb-4">Token Report</h1>
         <form onSubmit={handleSubmit} className="flex flex-wrap items-end gap-4">
           <div className="flex flex-col">
-            <label htmlFor="fromDate" className="text-gray-300 mb-1">From Date</label>
+            <label htmlFor="fromDate" className="text-primary-800 mb-1">From Date</label>
             <DatePicker
               id="fromDate"
               selected={fromDate}
               onChange={date => setFromDate(date)}
-              className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+              className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
               placeholderText="From Date"
             />
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="toDate" className="text-gray-300 mb-1">To Date</label>
+            <label htmlFor="toDate" className="text-primary-800 mb-1">To Date</label>
             <DatePicker
               id="toDate"
               selected={toDate}
               onChange={date => setToDate(date)}
-              className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+              className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
               placeholderText="To Date"
             />
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="userSelect" className="text-gray-300 mb-1">Select User</label>
+            <label htmlFor="userSelect" className="text-primary-800 mb-1">Select User</label>
             <select
               id="userSelect"
               value={selectedUser}
               onChange={(e) => setSelectedUser(e.target.value)}
-              className="px-4 py-3 bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300 min-w-[200px]"
+              className="px-4 py-3 bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300 min-w-[200px]"
             >
               <option value="">Select User</option>
               {users.map((user) => (
@@ -717,7 +718,7 @@ const Token_list = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="px-8 py-2 rounded-md bg-gray-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500 flex items-center justify-center"
+                className="px-8 py-2 rounded-md bg-primary-600 text-white font-bold transition duration-200 hover:bg-primary-700 border-2 border-transparent hover:border-primary-800 flex items-center justify-center"
               >
                 Apply Filters
               </button>
@@ -726,7 +727,7 @@ const Token_list = () => {
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="px-8 py-2 rounded-md bg-red-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-red-500 flex items-center justify-center"
+                  className="px-8 py-2 rounded-md bg-red-500 text-white font-bold transition duration-200 hover:bg-red-600 border-2 border-transparent hover:border-red-700 flex items-center justify-center"
                 >
                   Reset Filters
                 </button>
@@ -737,12 +738,12 @@ const Token_list = () => {
       </div>
 
       {/* Table Section */}
-      <div className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isFullScreen ? 'fixed inset-0 z-50' : ''
+      <div className={`bg-white rounded-lg shadow-lg overflow-hidden border border-primary-300 transition-all duration-300 ${isFullScreen ? 'fixed inset-0 z-50' : ''
         }`}>
-        <div className="p-4 bg-gray-50 border-b flex justify-between items-center">
+        <div className="p-4 bg-primary-50 border-b border-primary-200 flex justify-between items-center">
           <button
             onClick={toggleFullScreen}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300"
+            className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition duration-300"
           >
             {isFullScreen ? <FaCompressAlt /> : <FaExpandAlt />}
             {isFullScreen ? 'Exit Full Screen' : 'Full Screen'}
@@ -761,7 +762,7 @@ const Token_list = () => {
         <div className={`${isFullScreen ? 'h-[calc(100vh-80px)] overflow-auto' : ''}`}>
           <DataTable
             columns={columns}
-            data={filteredData} // Use filteredData directly instead of currentData
+            data={filteredData}
             pagination
             paginationServer
             paginationPerPage={perPage}
@@ -772,7 +773,7 @@ const Token_list = () => {
             onChangeRowsPerPage={handlePerPageChange}
             progressPending={isLoading}
             progressComponent={
-              <div className="py-8 text-center text-gray-500">
+              <div className="py-8 text-center text-primary-600">
                 <div className="flex flex-col items-center justify-center">
                   <FaSpinner className="animate-spin text-2xl mb-2" />
                   <span className="font-medium">Loading tokens...</span>
@@ -780,10 +781,10 @@ const Token_list = () => {
               </div>
             }
             noDataComponent={
-              <div className="py-8 text-center text-gray-500 text-lg">
+              <div className="py-8 text-center text-primary-600 text-lg">
                 <div className="flex flex-col items-center justify-center">
                   <span className="font-medium">No data available</span>
-                  <span className="text-sm text-gray-400 mt-1">Select date range to view tokens</span>
+                  <span className="text-sm text-primary-400 mt-1">Select date range to view tokens</span>
                 </div>
               </div>
             }
@@ -801,45 +802,45 @@ const Token_list = () => {
       {/* Add Update Form Popup */}
       {showUpdateForm && updateFormData && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center pt-20 z-50">
-          <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 w-[800px] max-h-[85vh] overflow-y-auto relative">
+          <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 w-[800px] max-h-[85vh] overflow-y-auto relative border border-primary-300">
             {/* Close button */}
             <button
               onClick={() => setShowUpdateForm(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              className="absolute top-4 right-4 text-primary-800 hover:text-primary-900"
             >
               <FaTimes className="w-6 h-6" />
             </button>
 
-            <h2 className="text-2xl font-bold text-gray-300 mb-4">Update Token</h2>
+            <h2 className="text-2xl font-bold text-primary-800 mb-4">Update Token</h2>
             <form onSubmit={(e) => {
               e.preventDefault();
               handleUpdateSubmit(updateFormData);
             }}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Driver Name</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Driver Name</label>
                   <input
                     type="text"
                     value={updateFormData.driverName}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, driverName: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Driver Mobile No.</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Driver Mobile No.</label>
                   <input
                     type="text"
                     value={updateFormData.driverMobileNo}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, driverMobileNo: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle Type</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle Type</label>
                   <select
                     value={updateFormData.vehicleType || updateFormData.vehicleId?.vehicleType || ''}
                     onChange={handleVehicleTypeChange}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   >
                     <option value="">Select Vehicle Type</option>
                     {vehicleTypes.map((type) => (
@@ -850,57 +851,57 @@ const Token_list = () => {
                   </select>
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle Rate</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle Rate</label>
                   <input
                     type="text"
                     value={updateFormData.vehicleRate || ''}
                     readOnly
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Vehicle No</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Vehicle No</label>
                   <input
                     type="text"
                     value={updateFormData.vehicleNo}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, vehicleNo: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Place</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Place</label>
                   <input
                     type="text"
                     value={updateFormData.place}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, place: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Route</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Route</label>
                   <input
                     type="text"
                     value={updateFormData.route}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, route: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Challan Pin</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Challan Pin</label>
                   <input
                     type="text"
                     value={updateFormData.challanPin}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, challanPin: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
                 <div className="relative">
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Quantity</label>
+                  <label className="block text-primary-800 text-sm font-bold mb-2">Quantity</label>
                   <input
                     type="number"
                     value={updateFormData.quantity}
                     onChange={(e) => setUpdateFormData({ ...updateFormData, quantity: e.target.value })}
-                    className="px-4 py-3 w-full bg-gray-900 text-gray-300 rounded-lg border border-gray-700 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition-all duration-300"
+                    className="px-4 py-3 w-full bg-primary-50 text-primary-900 rounded-lg border border-primary-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -908,7 +909,7 @@ const Token_list = () => {
                 <button
                   type="button"
                   onClick={() => setShowUpdateForm(false)}
-                  className="px-6 py-2.5 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="px-6 py-2.5 bg-primary-200 text-primary-800 rounded-lg hover:bg-primary-300 transition-colors"
                   disabled={isUpdating}
                 >
                   Cancel
@@ -916,7 +917,7 @@ const Token_list = () => {
                 <button
                   type="submit"
                   disabled={isUpdating}
-                  className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+                  className="px-6 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2"
                 >
                   {isUpdating ? (
                     <>

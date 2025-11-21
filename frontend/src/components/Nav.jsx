@@ -109,18 +109,18 @@ const Nav = () => {
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-gradient-to-l from-slate-400 via-slate-700 to-black py-2 sm:py-3 md:py-3 lg:py-4">
+      <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 py-2 sm:py-3 md:py-3 lg:py-4 shadow-lg">
         <div className="flex justify-between items-center mx-2 sm:mx-3 md:mx-4 lg:mx-5">
           {/* Company Logo and Title */}
           <div className="flex items-center gap-2">
             <img
               src={logo}
               alt="Ramjee Singh & Co Logo"
-              className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[80px] lg:h-[90px] lg:w-[90px] rounded-full"
+              className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[80px] lg:h-[90px] lg:w-[90px] rounded-full border-4 border-white shadow-lg"
             />
           
             <Link to="/" className="ml-2 sm:ml-3 md:ml-4 lg:ml-5">
-              <h1 className="text-white text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold rounded-xl px-2 transition-transform duration-300 hover:scale-110 hover:shadow-lg hover:shadow-slate-400">
+              <h1 className="text-primary-800 text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold rounded-xl px-2 transition-transform duration-300 hover:scale-110 hover:shadow-lg">
                 Ramjee Singh And Co.
               </h1>
             </Link>
@@ -135,7 +135,7 @@ const Nav = () => {
                   alt="Home"
                   className="h-[25px] w-[25px] sm:h-[30px] sm:w-[30px] md:h-[40px] md:w-[40px]"
                 />
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-primary-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Home
                 </span>
               </button>
@@ -145,8 +145,8 @@ const Nav = () => {
               onClick={() => setShowContactModal(true)}
               className="transition-transform duration-300 hover:scale-110 group"
             >
-              <BiSolidContact className="text-3xl text-white hover:text-blue-400 transition-colors" />
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <BiSolidContact className="text-3xl text-primary-800 hover:text-primary-900 transition-colors" />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-primary-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Contact Us
               </span>
             </button>
@@ -168,19 +168,19 @@ const Nav = () => {
       {/* Logout Confirmation Modal */}
       {showLogoutConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl">
-            <h2 className="text-xl font-bold mb-4 text-gray-800">Confirm Logout</h2>
-            <p className="mb-6 text-gray-600">Are you sure you want to logout?</p>
+          <div className="bg-gradient-to-b from-primary-50 to-white p-6 rounded-lg shadow-xl border border-primary-300">
+            <h2 className="text-xl font-bold mb-4 text-primary-800">Confirm Logout</h2>
+            <p className="mb-6 text-primary-700">Are you sure you want to logout?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={handleLogoutCancel}
-                className="px-4 py-2 bg-gray-200 text-gray-800 hover:bg-gray-400 transition-colors"
+                className="px-4 py-2 bg-primary-200 text-primary-800 hover:bg-primary-300 transition-colors rounded-lg"
               >
                 Cancel
               </button>
               <button
                 onClick={handleLogoutConfirm}
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
               >
                 Logout
               </button>
@@ -192,42 +192,42 @@ const Nav = () => {
       {/* Contact Modal */}
       {showContactModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+          <div className="bg-gradient-to-b from-primary-50 to-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4 border border-primary-300">
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-2">
-                <BiSolidContact className="text-4xl text-blue-600" />
-                <h2 className="text-2xl font-bold text-gray-800">Contact Us</h2>
+                <BiSolidContact className="text-4xl text-primary-600" />
+                <h2 className="text-2xl font-bold text-primary-800">Contact Us</h2>
               </div>
               <button
                 onClick={() => setShowContactModal(false)}
-                className="text-gray-500 hover:text-gray-700 transition-colors"
+                className="text-primary-600 hover:text-primary-800 transition-colors"
               >
                 <IoMdClose className="text-2xl" />
               </button>
             </div>
             
             <div className="space-y-6">
-              <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-sm">
+              <div className="p-6 bg-gradient-to-r from-primary-100 to-primary-200 rounded-lg shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
-                  <BsBuilding className="text-2xl text-blue-600" />
-                  <h3 className="font-semibold text-gray-800 text-xl">Company</h3>
+                  <BsBuilding className="text-2xl text-primary-600" />
+                  <h3 className="font-semibold text-primary-800 text-xl">Company</h3>
                 </div>
-                <p className="text-gray-700 text-lg font-medium pl-9">Vashudev</p>
+                <p className="text-primary-700 text-lg font-medium pl-9">Vashudev</p>
               </div>
               
-              <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-sm">
+              <div className="p-6 bg-gradient-to-r from-primary-100 to-primary-200 rounded-lg shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
-                  <FaPhoneAlt className="text-2xl text-blue-600" />
-                  <h3 className="font-semibold text-gray-800 text-xl">Contact Numbers</h3>
+                  <FaPhoneAlt className="text-2xl text-primary-600" />
+                  <h3 className="font-semibold text-primary-800 text-xl">Contact Numbers</h3>
                 </div>
                 <div className="space-y-3 pl-9">
-                  <p className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-2">
+                  <p className="text-primary-700 hover:text-primary-900 transition-colors cursor-pointer flex items-center gap-2">
                     <span className="font-medium">+91 6239135898</span>
                   </p>
-                  <p className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-2">
+                  <p className="text-primary-700 hover:text-primary-900 transition-colors cursor-pointer flex items-center gap-2">
                     <span className="font-medium">+91 7644027325</span>
                   </p>
-                  <p className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-2">
+                  <p className="text-primary-700 hover:text-primary-900 transition-colors cursor-pointer flex items-center gap-2">
                     <span className="font-medium">+91 9508694942</span>
                   </p>
                 </div>

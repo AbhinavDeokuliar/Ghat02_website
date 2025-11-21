@@ -11,7 +11,7 @@ const OperatorDashboard = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-primary-100 via-primary-200 to-primary-300">
       <Nav />
       <div className="flex flex-1 pt-[100px]"> {/* Added padding-top to account for fixed Nav */}
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
@@ -23,10 +23,10 @@ const OperatorDashboard = () => {
       </div>
 
       <footer className="footer_w">
-      <p className="m-0 text-xs tracking-wide opacity-75">
-        COPYRIGHT &copy; RAMJEE SINGH AND COMPANY - DEVELOPED BY VASHUDEV ALL RIGHTS RESERVED - 2025
-      </p>
-    </footer>
+        <p className="m-0 text-xs tracking-wide opacity-75">
+          COPYRIGHT &copy; RAMJEE SINGH AND COMPANY - DEVELOPED BY VASHUDEV ALL RIGHTS RESERVED - 2025
+        </p>
+      </footer>
     </div>
   );
 };

@@ -685,22 +685,46 @@ const Card = ({ operator }) => {
   const customStyles = {
     headRow: {
       style: {
-        backgroundColor: '#f1f5f9',
+        background: 'linear-gradient(to right, #D4C5A9, #E8DCBB, #F5EDCD)',
         fontWeight: 'bold',
+        minHeight: '52px',
+        paddingLeft: '8px',
+        paddingRight: '8px',
+      },
+    },
+    headCells: {
+      style: {
+        fontSize: '14px',
+        padding: '8px',
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontWeight: '600',
+        color: '#5C4A3A',
+      },
+    },
+    cells: {
+      style: {
+        padding: '8px',
+        justifyContent: 'center',
+        textAlign: 'center',
+        '&:not(:last-of-type)': {
+          borderRightWidth: '1px',
+          borderRightColor: '#E8DCBB',
+        },
       },
     },
     rows: {
       style: {
         minHeight: '60px',
         '&:hover': {
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#FFFDF5',
         },
       },
     },
     pagination: {
       style: {
         border: 'none',
-        backgroundColor: '#f8fafc',
+        backgroundColor: '#FFFDF5',
       },
     },
   };
@@ -708,8 +732,8 @@ const Card = ({ operator }) => {
   // Update the return statement's wrapper div
   return (
     <div className="p-7 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Tokens for {operator.username} ({totalRows} total)</h2>
-      <div className="bg-white rounded-lg shadow-lg overflow-x-auto">
+      <h2 className="text-2xl font-bold mb-4 text-primary-800">Tokens for {operator.username} ({totalRows} total)</h2>
+      <div className="bg-white rounded-lg shadow-lg overflow-x-auto border border-primary-300">
         <DataTable
           columns={columns}
           data={data}
@@ -724,8 +748,8 @@ const Card = ({ operator }) => {
           progressPending={loading}
           progressComponent={
             <div className="flex justify-center items-center gap-2 p-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-              <span className="text-gray-500">Loading tokens...</span>
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-600"></div>
+              <span className="text-primary-600">Loading tokens...</span>
             </div>
           }
           customStyles={customStyles}

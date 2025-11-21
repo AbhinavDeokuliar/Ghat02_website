@@ -152,7 +152,7 @@ const Update_Token_list = () => {
   const customStyles = {
     headRow: {
       style: {
-        background: 'linear-gradient(to right, #94a3b8, #cbd5e1, #e2e8f0)',
+        background: 'linear-gradient(to right, #D4C5A9, #E8DCBB, #F5EDCD)',
         fontWeight: 'bold',
         minHeight: '52px',
         paddingLeft: '8px',
@@ -166,6 +166,7 @@ const Update_Token_list = () => {
         justifyContent: 'center',
         textAlign: 'center',
         fontWeight: '600',
+        color: '#5C4A3A',
       },
     },
     cells: {
@@ -175,7 +176,7 @@ const Update_Token_list = () => {
         textAlign: 'center',
         '&:not(:last-of-type)': {
           borderRightWidth: '1px',
-          borderRightColor: '#e5e7eb',
+          borderRightColor: '#E8DCBB',
         },
       },
     },
@@ -183,8 +184,14 @@ const Update_Token_list = () => {
       style: {
         minHeight: '60px',
         '&:hover': {
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#FFFDF5',
         },
+      },
+    },
+    pagination: {
+      style: {
+        border: 'none',
+        backgroundColor: '#FFFDF5',
       },
     },
   };
@@ -205,12 +212,12 @@ const Update_Token_list = () => {
       )}
 
       {/* Simplified Header Section */}
-      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-6 mb-6">
-        <h1 className="text-2xl font-bold text-gray-300 text-center">Updated Tokens Report</h1>
+      <div className="bg-gradient-to-b from-primary-400 to-primary-500 rounded-2xl shadow-2xl p-6 mb-6 border border-primary-300">
+        <h1 className="text-2xl font-bold text-primary-800 text-center">Updated Tokens Report</h1>
       </div>
 
       {/* DataTable Section */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-primary-300">
         <DataTable
           columns={columns}
           data={filteredData}
@@ -224,14 +231,14 @@ const Update_Token_list = () => {
           onChangeRowsPerPage={handlePerPageChange}
           progressPending={loading}
           progressComponent={
-            <div className="flex items-center justify-center gap-2 py-8">
+            <div className="flex items-center justify-center gap-2 py-8 text-primary-600">
               <FaSpinner className="animate-spin text-2xl" />
               <span>Loading data...</span>
             </div>
           }
           customStyles={customStyles}
           noDataComponent={
-            <div className="py-8 text-center text-gray-500 text-lg">
+            <div className="py-8 text-center text-primary-600 text-lg">
               No data available
             </div>
           }
